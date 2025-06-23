@@ -16,6 +16,15 @@ button.addEventListener("click", () => {
   });
 });
 
+const clearGridButton = document.getElementById("clear-grid");
+
+clearGridButton.addEventListener("click", () => {
+  const allCells = document.querySelectorAll("td");
+  allCells.forEach(cell => {
+    cell.style.backgroundColor = ""; 
+  });
+});
+
 const cells = document.querySelectorAll("td");
 
 let isMouseDown = false;
