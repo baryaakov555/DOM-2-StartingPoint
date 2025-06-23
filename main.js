@@ -124,32 +124,23 @@ clearAllCells.addEventListener("click", () =>
   }
 });
 
-/*
-//drawing
-const cellMouseOver = document.querySelectorAll("td");
-
 let isMouseDown = false;
 const colorSelect = document.getElementById("color-select");
+const table = document.querySelector("table");
 
-cells.forEach(cell => {
-  cell.addEventListener("mousedown", () => {
+table.addEventListener("mousedown", (e) => {
+  if (e.target.tagName === "TD") {
     isMouseDown = true;
-    cell.style.backgroundColor = colorSelect.value;
-  });
+    e.target.style.backgroundColor = colorSelect.value;
+  }
+});
 
-  cell.addEventListener("mouseover", () => {
-    if (isMouseDown) {
-      cell.style.backgroundColor = colorSelect.value;
-    }
-  });
-
-  cell.addEventListener("mouseup", () => {
-    isMouseDown = false;
-  });
+table.addEventListener("mouseover", (e) => {
+  if (isMouseDown && e.target.tagName === "TD") {
+    e.target.style.backgroundColor = colorSelect.value;
+  }
 });
 
 document.addEventListener("mouseup", () => {
   isMouseDown = false;
 });
-
-*/
